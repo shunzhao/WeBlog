@@ -1,0 +1,48 @@
+{extend name="layout/layout" /}
+{block name="title"}网站管理 - Powered by shunzi!{/block}
+{block name="main"}
+<div class="weui-toptips weui-toptips_warn js_tooltips" style="display: none;"></div>
+<div class="weui-cells__title">网站信息设置</div>
+<form action="/admin/upWebInfo" method="POST">
+    <div class="weui-cells weui-cells_form">
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">网站标题：</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input webname" name="title" value="<{$data.title}>" type="text" placeholder="请输入网站名称"/>
+            </div>
+        </div>
+
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">网站副标题：</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input websubname" name="subname" value="<{$data.subname}>" type="text" placeholder="请输入网站副标题,不填请留空！"/>
+            </div>
+        </div>
+
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">网站关键字：</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input webkeywords" name="keywords" value="<{$data.keywords}>" type="text" placeholder="请输入网站关键字"/>
+            </div>
+        </div>
+
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">网站描述：</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input webdescription" name="description" value="<{$data.description}>" type="text" placeholder="请输入网站描述"/>
+            </div>
+        </div>
+
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">统计代码：</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input tj" name="tj" value="<{$data.tj}>" type="text" placeholder="请输入统计代码，不填请留空！"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="weui-btn-area">
+        <button class="weui-btn weui-btn_primary" id="showTooltips">修改</button>
+    </div>
+</form>
+{/block}

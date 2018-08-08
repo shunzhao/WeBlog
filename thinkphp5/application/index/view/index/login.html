@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>后台登录页面 - Powered by shunzi!</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<link rel="stylesheet" href="__STATIC__/css/weui.min.css"/>
+	<script src="__STATIC__/js/jquery.min.js"></script>
+	<link rel="stylesheet" href="__STATIC__/css/my.css"/>
+</head>
+<body>
+	<div class="main admin">
+		<br>
+		<h1 class="title">顺子博客管理页面</h1>
+		<div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
+<div class="weui-cells weui-cells_form">
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label">用户名：</label></div>
+        <div class="weui-cell__bd">
+            <input class="weui-input un" type="text" maxlength="16" placeholder="请输入用户名"/>
+        </div>
+    </div>
+
+	<div class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label">密&nbsp;&nbsp;码：</label></div>
+        <div class="weui-cell__bd">
+            <input class="weui-input pwd" type="password" maxlength="16" placeholder="请输入密码"/>
+        </div>
+    </div>
+   
+    <div class="weui-cell weui-cell_vcode">
+        <div class="weui-cell__hd"><label class="weui-label">验证码：</label></div>
+        <div class="weui-cell__bd">
+            <input class="weui-input code" type="text" name="captcha" maxlength="4" placeholder="请输入验证码"/>
+        </div>
+        <div class="weui-cell__ft">
+            <img class="weui-vcode-img" onclick="this.src=this.src" src="<{:captcha_src()}>" />
+        </div>
+    </div>
+
+</div>
+<div class="weui-btn-area">
+    <button class="weui-btn weui-btn_primary lBtn">确定</button>
+</div>
+	</div>
+	<script src="__STATIC__/js/my.js"></script>
+</body>
+</html>

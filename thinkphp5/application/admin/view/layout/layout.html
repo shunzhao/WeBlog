@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{block name="title"}{/block}</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<link rel="stylesheet" href="__STATIC__/css/weui.min.css"/>
+	<script src="__STATIC__/js/jquery.min.js"></script>
+	<link rel="stylesheet" href="__STATIC__/css/my.css"/>
+    {block name="head"}{/block}
+</head>
+<body>
+<div class="weui-tab">
+        <div class="weui-navbar">
+            <a href="/admin" class="weui-navbar__item">
+                新增文章
+            </a>
+            <a href="/admin/webmgt" class="weui-navbar__item">
+                网站管理
+            </a>
+            <a href="/admin/postmgt" class="weui-navbar__item">
+                文章管理
+            </a>
+            <a href="/admin/linkmgt" class="weui-navbar__item">
+                友情管理
+            </a>
+            <a href="/admin/usermgt" class="weui-navbar__item">
+                用户管理
+            </a>
+        </div>
+        <div class="weui-tab__panel">
+            <div class="main">
+                {block name="main"}{/block}
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="weui-footer">
+        <p class="weui-footer__links">
+            <a href="javascript:void(0);" class="weui-footer__link">shunzi</a>
+            <a href="/logout" class="weui-footer__link">安全退出</a>
+        </p>
+        <p class="weui-footer__text">Copyright &copy; 2018 zhaoshun.org</p>
+    </div>
+ <script src="__STATIC__/js/my.js"></script>
+ {block name="script"}{/block}
+</body>
+</html>

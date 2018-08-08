@@ -1,0 +1,12 @@
+{extend name="layout/layout" /}
+{block name="title"}<{$data.title}> - <{$info.title}>{/block}
+{block name="h1"}<{$info.title}>{/block}
+{block name="main"}
+<article class="weui-article" style="text-align: center;">
+    <h1 class="title"><{$data.title}></h1>
+    <section>
+        <{$data.content}>
+    </section>
+</article>
+<div style="display: none;" id="gotop"><img src="__STATIC__/images/top.png" width="50"></div>
+{/block}

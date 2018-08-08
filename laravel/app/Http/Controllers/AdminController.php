@@ -260,11 +260,13 @@ class AdminController extends Controller{
 	public function userModify(Request $request)
 	{
 		$request->validate([
+			'uname' => 'required',
 			'pwd' => 'required',
 		],[
 			'required' => ':attribute 不得为空',
 		],[
-			'pwd' => '密码',
+			'uname' => '用户名',
+			'pwd' => '密码'
 		]);
 		$pwd = $request->input('pwd');
 		$cpwd = $request->input('cpwd');
@@ -273,9 +275,11 @@ class AdminController extends Controller{
 		{
 			$admin = new Admin();
 			$obj = $admin->where('username', $request->session()->get('Admin'))->first();
+			$obj->username = $request->input('uname');
 			$obj->password = md5($pwd.'Sz');
 			if($obj->save())
 			{
+				session()->forget('Admin');
 				return view('admins.success', ['msg' => '修改成功']);
 			}
 			return view('admins.error', ['msg' => '修改失败，请重试']);

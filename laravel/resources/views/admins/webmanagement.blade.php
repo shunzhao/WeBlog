@@ -14,6 +14,14 @@
                 <input class="weui-input webname" value="{{ $data->title }}" name="title" type="text" placeholder="请输入网站标题"/>
             </div>
         </div>
+
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">网站标题：</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input webname" value="{{ $data->title }}" name="title" type="text" placeholder="请输入网站标题"/>
+            </div>
+        </div>
+        
         <div class="weui-cell">
             <div class="weui-cell__hd"><label class="weui-label">网站副标题：</label></div>
             <div class="weui-cell__bd">

@@ -1,0 +1,71 @@
+body{
+	background-color: #eeeeee;
+}
+.main{
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+@media (min-width: 768px) {
+  .main {
+    width: 750px;
+  }
+  .admin {
+    width: 500px;
+  }
+}
+@media (min-width: 992px) {
+  .main {
+    width: 800px;
+  }
+  .admin {
+    width: 500px;
+  }
+}
+@media (min-width: 1200px) {
+  .main {
+    width: 800px;
+  }
+  .admin {
+    width: 500px;
+  }
+}
+.title{
+	text-align: center;
+	font-size: 3em;
+}
+.weui-media-box__desc{
+	font-size: 16px !important;
+	padding-left:5px;
+	color:#8A8A8A;
+}
+.article_header
+{
+	color: #000000;
+}
+.weui-panel_access{
+	opacity:0.9;
+}
+.weui-article{
+	border-bottom:1px solid #E4E4E4;
+}
+.weui-article h1{
+	font-size:30px;
+}
+img{
+	cursor: pointer;
+}
+#gotop{
+	position:fixed;
+    bottom:3%;
+    right: 10%;
+    z-index: 999;
+}
+.readpost{
+	color:#8A8A8A;
+}
+.weui-flex{
+	line-height: 0px;
+	margin:5px 0px 8px 0px;
+}

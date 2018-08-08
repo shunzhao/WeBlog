@@ -1,0 +1,33 @@
+{extend name="layout/layout" /}
+{block name="title"}<{$info.title}> <{$info.subname}>{/block}
+{block name="keywords"}<{$info.keywords}>{/block}
+{block name="description"}<{$info.description}>{/block}
+{block name="h1"}<{$info.title}>{/block}
+{block name="main"}
+		<div class="weui-panel weui-panel_access">
+			{foreach $data as $row}
+				{neq name='$row.id' value='1'}
+		    	<article class="weui-article">
+			        <div class="weui-media-box weui-media-box_text">
+			            <h1 class="weui-media-box__title">
+			            	<a class="article_header" href="/post/<{$row.id}>"><{$row.title}></a>
+			            </h1>
+			            <p class="weui-media-box__desc">
+			            	<{$row.excerpt}>
+			            </p>
+			            <ul class="weui-media-box__info">
+			                <li class="weui-media-box__info__meta"><{$row.created_at}></li>
+			                <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">
+		                    	<a href="/post/<{$row.id}>" class="readpost">阅读全文</a>
+		                	</li>
+			            </ul>
+			        </div>
+		    	</article>
+		    	{/neq}
+			{/foreach}
+		</div>
+		{block name="page"}
+			<{$data->render()}>
+		{/block}
+		<div style="display: none;" id="gotop"><img src="__STATIC__/images/top.png" width="50"></div>
+{/block}

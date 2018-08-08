@@ -1,0 +1,97 @@
+<!-- 
+ *
+ *                             _ooOoo_
+ *                            o8888888o
+ *                            88" . "88
+ *                            (| -_- |)
+ *                            O\  =  /O
+ *                         ____/`---'\____
+ *                       .'  \\|     |//  `.
+ *                      /  \\|||  :  |||//  \
+ *                     /  _||||| -:- |||||-  \
+ *                     |   | \\\  -  /// |   |
+ *                     | \_|  ''\---/''  |   |
+ *                     \  .-\__  `-`  ___/-. /
+ *                   ___`. .'  /--.--\  `. . __
+ *                ."" '<  `.___\_<|>_/___.'  >'"".
+ *               | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+ *               \  \ `-.   \_ __\ /__ _/   .-` /  /
+ *          ======`-.____`-.___\_____/___.-`____.-'======
+ *                             `=---='
+ *          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ *                     佛祖保佑        永无BUG
+ *             佛曰：
+ *                   写字楼里写字间，写字间里程序员；
+ *                   程序人员写程序，又拿程序换酒钱。
+ *                   酒醒只在网上坐，酒醉还来网下眠；
+ *                   酒醉酒醒日复日，网上网下年复年。
+ *                   但愿老死电脑间，不愿鞠躬老板前；
+ *                   奔驰宝马贵者趣，公交自行程序员。
+ *                   别人笑我忒疯癫，我笑自己命太贱；
+ *                   不见满街漂亮妹，哪个归得程序员？
+ *
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{block name="title"}{/block}</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<meta name="keywords" content="{block name='keywords'}{/block}" />
+    <meta name="description" content="{block name='description'}{/block}" />
+	<link rel="stylesheet" href="__STATIC__/css/weui.min.css"/>
+	<link rel="stylesheet" href="__STATIC__/css/my.css"/>
+	<script src="__STATIC__/js/jquery.min.js"></script>
+</head>
+<body>
+	<div class="main">
+		<br>
+		<h1 class="title"><a href='/'>{block name="h1"}{/block}</a></h1>
+        <div class="weui-search-bar" id="searchBar">
+            <form class="weui-search-bar__form" action="/Search/i" method="GET">
+                <div class="weui-search-bar__box">
+                    <i class="weui-icon-search"></i>
+                    <input type="search" name="keywords" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required/>
+                    <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+                </div>
+                <label class="weui-search-bar__label" id="searchText">
+                    <i class="weui-icon-search"></i>
+                    <span>搜索</span>
+                </label>
+            </form>
+            <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+        </div>
+        {block name="main"}
+			{block name="page"}{/block}
+        {/block}
+{block name="nav"}
+	<div class="weui-tab">
+	    <div class="weui-tab__panel"></div>
+	    <div class="weui-tabbar">
+	        <a href="/" class="weui-tabbar__item">
+	            <img src="__STATIC__/images/post.png" class="weui-tabbar__icon">
+	            <p class="weui-tabbar__label">首页</p>
+	        </a>
+	        <a href="/link" class="weui-tabbar__item">
+	            <img src="__STATIC__/images/link.png" class="weui-tabbar__icon">
+	            <p class="weui-tabbar__label">邻居</p>
+	        </a>
+	        <a href="/post/1" class="weui-tabbar__item">
+	            <img src="__STATIC__/images/me.png" class="weui-tabbar__icon">
+	            <p class="weui-tabbar__label">我</p>
+	        </a>
+	    </div>
+	</div>
+{/block}
+	<br>
+    <div class="weui-footer">
+        <p class="weui-footer__links">
+            <a href="javascript:void(0);" class="weui-footer__link">shunzi</a>
+        </p>
+        <p class="weui-footer__text">Copyright &copy; 2018 zhaoshun.org</p>
+    </div>
+	</div>
+	<script src="__STATIC__/js/my.js"></script>
+	{block name="script"}{/block}
+</body>
+</html>

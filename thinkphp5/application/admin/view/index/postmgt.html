@@ -1,0 +1,60 @@
+{extend name="layout/layout" /}
+{block name="title"}文章管理 - Powered by shunzi!{/block}
+{block name="main"}
+<br>
+<div class="weui-search-bar" id="searchBar">
+    <form class="weui-search-bar__form"  action="/Search/a/" method="GET">
+        <div class="weui-search-bar__box">
+            <i class="weui-icon-search"></i>
+            <input type="search" name="keywords" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required/>
+            <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+        </div>
+        <label class="weui-search-bar__label" id="searchText">
+            <i class="weui-icon-search"></i>
+            <span>搜索</span>
+        </label>
+    </form>
+    <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+</div>
+
+<div class="weui-cells">
+    {foreach $data as $row}
+    {neq name='$row.id' value='1'}
+        <div class="weui-cell weui-cell_swiped">
+            <div class="weui-cell__bd"  style="transform: translateX(-68px)">
+                <div class="weui-cell">
+                    <div class="weui-cell__bd">
+                        <p style="padding-left: 68px;">
+                            <{$row.title}>
+                        </p>
+                    </div>
+                    <div class="weui-cell__ft">
+                        <a href="/admin/<{$row.id}>">编辑</a>
+                    </div>
+                </div>
+            </div>
+            <div class="weui-cell__ft">
+                <a class="weui-swiped-btn weui-swiped-btn_warn" href="/admin/delete/post/<{$row.id}>">删除</a>
+            </div>
+        </div>
+    {/neq}
+    {/foreach}
+    <hr>
+    <div class="weui-cell weui-cell_swiped">
+        <div class="weui-cell__bd"  style="transform: translateX(-68px)">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <p style="padding-left: 68px;">
+                        关于
+                    </p>
+                </div>
+                <div class="weui-cell__ft">
+                    <a href="/admin/1">编辑</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<{$data->render()}>
+{/block}

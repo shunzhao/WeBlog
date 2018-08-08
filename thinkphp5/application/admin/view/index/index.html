@@ -1,0 +1,83 @@
+{extend name="layout/layout" /}
+{block name="title"}新增文章 - Powered by shunzi!{/block}
+{block name="head"}
+<link href="__STATIC__/shunumeditorzi/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="__STATIC__/shunumeditorzi/third-party/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="__STATIC__/shunumeditorzi/umeditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="__STATIC__/shunumeditorzi/umeditor.min.js"></script>
+<script type="text/javascript" src="__STATIC__/shunumeditorzi/lang/zh-cn/zh-cn.js"></script>
+{/block}
+{block name="main"}
+<div class="weui-toptips weui-toptips_warn js_tooltips"></div>
+                <br>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">文章标题：</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" value="<{$data.title|default=''}>" name="title" type="text" placeholder="请输入标题"/>
+                    </div>
+                </div>
+<script type="text/plain" id="myEditor" style="width: 100%;height: 100%"><{$data.content|default=''}></script>
+                    <br>
+                    <button class="weui-btn weui-btn_primary PBtn">发布</button>
+{/block}
+{block name="script"}
+<script type="text/javascript">
+	var um = UM.getEditor('myEditor');
+    var $tooltips = $('.js_tooltips');
+    function showError() 
+    {
+        if ($tooltips.css('display') != 'none') return;
+        // toptips的fixed, 如果有`animation`, `position: fixed`不生效
+        $('.page.cell').removeClass('slideIn');
+        $tooltips.css('display', 'block');
+        setTimeout(function () {
+            $tooltips.css('display', 'none');
+        }, 2000);
+    }
+    $('.PBtn').click(function () {
+    var title = ($('.weui-input').val()).trim();
+    var content = um.getContent();
+    var excerpt = um.getContentTxt();
+    if(title == "")
+    {
+        $tooltips.text('文章标题不得为空');
+        showError();
+        return false;
+    }
+    else
+    {
+        $.ajax({
+            url: "/admin/Post",
+            data : {'title' : title, 'content' : content, 'id' : '<{$data.id|default=''}>', 'excerpt':excerpt },
+            type: "POST",
+            dataType:'JSON',
+            success: function (result) 
+            {
+                if(result.code)
+                {
+                    window.location.href = '/admin/postmgt';
+                }
+                else
+                {
+                    $tooltips.text(result.msg);
+                    showError();
+                }
+            },
+            error: function (result)
+            {
+                if(result.responseJSON)
+                {
+                    $tooltips.text(result.responseJSON.errors.captcha[0]);
+                    showError();
+                }
+                else
+                {
+                    $tooltips.text('操作失败，请尝试重试！');
+                    showError();
+                }
+            }
+        });
+    }
+});
+</script>
+{/block}
